@@ -14,7 +14,7 @@ async function getPromise() {
       const box = document.createElement('div');
       box.className = 'box';
       box.style.width = '300px';
-      box.style.height = '400px';
+      box.style.height = '500px';
       box.style.border = '1px solid #000';
       box.style.display = 'flex';
       box.style.flexDirection = 'column';
@@ -30,11 +30,23 @@ async function getPromise() {
       name.style.margin = '5px 0';
       box.appendChild(name);
 
-      const city = document.createElement('p');
-      city.textContent = `Price: $${item.price}`;
-      city.style.fontSize = '15px';
-      city.style.margin = '5px 0';
-      box.appendChild(city);
+      const price = document.createElement('p');
+      price.textContent = `Price: $${item.price}`;
+      price.style.fontSize = '15px';
+      price.style.margin = '5px 0';
+      box.appendChild(price);
+
+      const category = document.createElement('p');
+      category.textContent = `Category: ${item.category}`;
+      category.style.fontSize = '15px';
+      category.style.margin = '5px 0';
+      box.appendChild(category);
+
+      const description = document.createElement('p');
+      description.textContent = `Description: ${item.description}`;
+      description.style.fontSize = '15px';
+      description.style.margin = '5px 0';
+      box.appendChild(description);
 
       const image = document.createElement('img');
       image.src = item.image;
@@ -58,22 +70,18 @@ async function getPromise() {
       container.appendChild(box);
 
       box.addEventListener('mouseover', () => {
-
         document.body.style.backgroundColor = 'yellow';
         document.body.style.color = 'black';
-        
-});
+      });
 
-box.addEventListener('mouseout', () => {
-  document.body.style.backgroundColor = '';
-  document.body.style.color = '';
-});
+      box.addEventListener('mouseout', () => {
+        document.body.style.backgroundColor = '';
+        document.body.style.color = '';
+      });
     });
   } catch (error) {
     console.error('Ошибка:', error);
   }
 }
-
-
 
 getPromise();
